@@ -144,6 +144,28 @@
         //     return n;
         // }
         // int res = Ar2(5);
+
+//Решение от коллег Показать числа от -N до N
+
+// int n = 10;
+
+// int[] CreateArray( int arg)
+// {
+//     int [] arrayA = new int [arg * 2 + 1];  //+1 для того, чтобы влез 0
+//     for(int i = -arg; i <= arg; i++)
+//     {
+//         arrayA[i + arg] = i;
+//     }
+//     return arrayA;
+// }
+
+// int[] arr =CreateArray(n);
+
+// //for(int count = 0; count < arrayA.Length; count++) Console.Write($"{arrayA[count]} ");
+// Console.WriteLine(String.Join(',', arr)); //вывод массива на экран через запятую
+
+
+
 //КАК УБРАТЬ КОНСОЛЬ ИЗ ТЕЛА МЕТОДА ВЫШЕ И НИЖЕ (7 и 8 задачи) И СДЕЛАТЬ НОРМАЛЬНЫЙ ВЫЗОВ МЕТОДА - ПОКА НЕ ПОНИМАЮ...        
 
 
@@ -459,28 +481,49 @@
 
 
 // 33. Задать массив из 12 элементов, заполненных числами из [-9,9]. Найти сумму положительных/отрицательных элементов массива
-    int[] numbers (int a) //метод (массива?)
-    {
-        int [] arr = new int [a]; //задаем массив
-            for (int i = 0; i < arr.Length; i++) //задаем цикл
-            {
-                arr [i] = new Random().Next(-9,10); //чем наполняем массив (случайные цифры из указанного промежутка)
-            }
-        return arr; //возвращаем массив
-    }
+    // int[] numbers (int a) //метод (массива?)
+    // {
+    //     int [] arr = new int [a]; //задаем массив
+    //         for (int i = 0; i < arr.Length; i++) //задаем цикл
+    //         {
+    //             arr [i] = new Random().Next(-9,10); //чем наполняем массив (случайные цифры из указанного промежутка)
+    //         }
+    //     return arr; //возвращаем массив
+    // }
 
-    string A(int[]a ) //этот метод превращает массив в строку (для печати видимо)
-    {
-        string result = string.Empty;
-        for (int i = 0; i < a.Length; i++)
-        {
-            result += ($"{a[i]} ");
-        }
-        return result;
-    }
-    Console.WriteLine(A(numbers(12)));
+    // string A(int[]a ) //этот метод превращает массив в строку (для печати видимо)
+    // {
+    //     string result = string.Empty;
+    //     for (int i = 0; i < a.Length; i++)
+    //     {
+    //         result += ($"{a[i]} ");
+    //     }
+    //     return result;
+    // }
+    // Console.WriteLine(A(numbers(12)));
 // С СУММОЙ ПОКА НЕ РАЗОБРАЛСЯ. НО ДУМАЮ ТУТ БУДЕТ ДВА ЦИКЛА ПО ОТБОРУ И СУММИРОВАНИЮ ОТРИЦАТЕЛЬНЫХ И ПОЛОЖИТЕЛЬНЫХ ЧИСЕЛ
 //С ПОСЛЕДУЮЩИМ ВЫВОДОМ В ТЕРМИНАЛ
+
+//Вариант коллег:
+// 33. Задать массив из 12 элементов, заполненных числами из [0,9]. Найти сумму положительных/отрицательных элементов массива
+
+// int [] CreateArray(int arg, int arg1, int arg2) //кол-во элементов, нач эл-т, конечный элемент массива
+//     { //создание массива из "случайных" чисел из заданного диапазона (все тело)
+//         int [] array = new int [arg];
+//         for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
+//         return array;
+//     }
+
+// int Summ(int [] Array)  //метод находит сумму элементов массива
+// {
+//     int sum = 0;  //новая переменная
+//     for( int i = 0; i <Array.Length; i++) sum += Array[i]; //sum = sum + Arrai[i]   //сумма от i до ...
+//     return sum;
+// }
+
+// Console.WriteLine(Summ(CreateArray(12, 0, 9)));  //печать вызова суммы от заданного массива
+
+
 
 
 // 34. Написать программу замену элементов массива на противоположные
@@ -495,20 +538,106 @@
 
 // 36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
 
+//От коллег
+
+// int [] CreateArray()
+//     {
+//         int [] array = new int [15];
+//         for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(100,1000);
+//         return array;
+//     }
+//     int []RandomArray = CreateArray();
+
+// Console.WriteLine(String.Join(',',RandomArray));
+
+// (int a, int b) FindEvenOdd( int [] array)
+// {
+//     int even = 0;
+//     int odd = 0;
+//     for (int j = 0; j < array.Length; j++)
+//     {
+//         if(array[j]%2!=0) odd+=1;
+//         else even +=1;
+//     }
+//     return (odd,even);
+// }
+// Console.WriteLine(FindEvenOdd(RandomArray));
+
 
 
 
 // 37. В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99]
+//от коллег:
+// int [] CreateArray(int arg, int arg1, int arg2)
+//     {
+//         int [] array = new int [arg];
+//         for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
+//         return array;
+//     }
+
+// int[] RandomArray = CreateArray(12, -1000, 1000);
+// Console.WriteLine(String.Join(',',RandomArray));
+
+// int Find(int[] mass)
+// {
+//     int sum=0;
+//     for( int j = 0; j < mass.Length; j++) 
+//         if (mass[j] > 9 && mass[j] < 99) sum +=1;
+//     return sum;
+// }
+
+// Console.WriteLine(Find(RandomArray));
 
 
 
 
 // 38. Найти сумму чисел одномерного массива стоящих на нечетной позиции
+//от коллег
+// int[] CreateArray(int arg, int arg1, int arg2)
+// {
+//     int[] array = new int[arg];
+//     for (int i = 0; i < array.Length; i++) array[i] = new Random().Next(arg1, arg2);
+//     return array;
+// }
+
+// int[] RandomArray = CreateArray(12, 1, 10);
+// Console.WriteLine(String.Join(',', RandomArray));
+
+// int SummOddPosition(int[] mass)
+// {
+//     int sum = 0;
+//     for (int j = 0; j < mass.Length; j++) if (j % 2 != 0) sum += mass[j]; 
+//     return sum;
+// }
+
+// Console.WriteLine(SummOddPosition(RandomArray));
 
 
 
 
 // 39. Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+//от коллег (пока не рабочий)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+int[] CreateArray(int arg, int arg1, int arg2)
+{
+    int[] array = new int[arg];
+    for (int i = 0; i < array.Length; i++) array[i] = new Random().Next(arg1, arg2);
+    return array;
+}
+
+int[] RandomArray = CreateArray(12, 1, 10);
+Console.WriteLine(String.Join(',', RandomArray));
+
+int SummOddPosition(int[] mass)
+{
+    int work = 0;
+    int len = mass.Length;
+    for (int j = 0; j < mass.Length/2; j++)
+        work = mass[j] * mass[len];
+        len -=1;
+    return work;
+}
+
+Console.WriteLine(SummOddPosition(RandomArray));
 
 
 
