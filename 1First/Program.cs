@@ -351,12 +351,27 @@
 
 
 // 18. Проверить истинность утверждения ¬(X ⋁ Y) = ¬X ⋀ ¬Y
-
+    //Тут, видимо стоит записать выражение понятными для ПК знаками
+    //Использую логический метод, для начала
+    // bool Ne(bool x, bool y)
+    // {
+    //     bool a = !(x | y);
+    //     bool b = ! x & ! y;
+    //     return a == b;
+    // }
+    // bool res = Ne(true,false);
+    // bool res1 = Ne(true,true);
+    // bool res2 = Ne(false,false);
+    // bool res3 = Ne(false,true);
+    // Console.WriteLine(res);
+    // Console.WriteLine(res1);
+    // Console.WriteLine(res2);
+    // Console.WriteLine(res3);
 
 
 
 // 19. Определить номер четверти плоскости, в которой находится точка с координатами Х и У, причем X ≠ 0 и Y ≠ 0
-    // Допущение: "X ≠ 0 и Y ≠ 0" - понимаю как "X и Y вмести и по отдельности ≠ 0"
+    // //Допущение: "X ≠ 0 и Y ≠ 0" - понимаю как "X и Y вмести и по отдельности ≠ 0"
     // double quarter (double x, double y)
     // {
     //     if (x == 0 | y == 0) return 0;  //Если x или y равны нулю, вернуть ноль (координаты на осях)
@@ -385,8 +400,9 @@
         // Console.WriteLine(res);
 
 
+
 // 20. Ввести номер четверти, показать диапазоны для возможных координат
-    //Тупанул, делал для 20 задачи, но понял, что сделал 19 другим способом
+    ////Не придумал способа показать диапазоны по другому
     // string quarter2 (string[] args)
     // {
     //     Console.WriteLine("Введите номер четверти: ");  //запрос ввода
@@ -404,11 +420,87 @@
 
 
 // 21. Программа проверяет пятизначное число на палиндромом.
+// //==========================================
+// //!!!ПОКА ПОНЯЛ КАК ПЕРЕВЕРНУТЬ ЧИСЛО, КАК СРАВНИТЬ - НЕ ПОНЯЛ!!!
+// int Q(int x)  //объявлен целочисленный метод с аргументом Х (для переворачивания числа)
+// {
+//     int a = 0;  //ввожу переменную
+//     while (x>0)  //до тех пор пока Х > 0
+//     {
+//         a = a * 10;  //увеличиваю переменную в разряде (десятки, сотни и т.д)
+//                      //чтобы в конце был ноль
+//         a = a + x%10;  //прибавляю к А последнюю цифру числа Х (остаток от деления на 10)
+//         x/=10;  //делю Х на 10 - остается число без последней цифры
+//     }
+//     return a;
+    
+// }
+// Console.WriteLine(Q(23432));
+// //============================================
+
+
+
 // 22. Найти расстояние между точками в пространстве 2D/3D
+    //формула для 2D: корень из((x2-x1)^2+(y2-y1)^2)
+    //формула для 3D: корень из((x2-x1)^2+(y2-y1)^2+(z2-z1)^2)
+    //Корень в C#: Math.Sqrt(Double)
+    //Возведение в квадрат в C#: Math.Pow(Double число, Double степень)
+// double distance(double x1, double y1, double z1,  //метод и аргументы
+//                 double x2, double y2, double z2)
+// {
+//     double d = Math.Sqrt(Math.Pow((x2-x1),2)+(Math.Pow((y2-y1),2))+(Math.Pow((z2-z1),2)));
+//     return d;  //тупо формулу переписал языком C#
+// }
+// double res = distance(2,3,0,5,6,0);  //ввод координат, если считаем 2D -> z1&z2==0
+// Console.WriteLine(res);
+
+
 
 // Почувствуй себя мидлом
-// 23. Показать таблицу квадратов чисел от 1 до N 
+// 23. Показать таблицу квадратов чисел от 1 до N
+    // void Squares(int n)  //по мотивам 3 лекции (for в for)
+    // {
+    // for (int i = 1; i <= n; i++)  //цикл, выдает числа от 1 до N 
+    // {
+    //     for (int j = 2; j <=2; j++) //внутри каждого такта добавляет степень к числу из первого for
+    //     {
+    //         Console.WriteLine($"{i} ^ {j} = {Math.Pow(i,j)}"); //печать каждого такта
+    //     }
+    // } 
+    // }   
+    // Squares(7);  //вызов метода, 
+
+
+
 // 24. Найти кубы чисел от 1 до N
+    // void cube(int n)  //по мотивам 3 лекции (for в for) - хоть и не совсем по условию задания
+    // {
+    // for (int i = 1; i <= n; i++)  //цикл, выдает числа от 1 до N 
+    // {
+    //     for (int j = 3; j <=3; j++) //внутри каждого такта добавляет степень к числу из первого for
+    //     {
+    //         Console.WriteLine($"{i} ^ {j} = {Math.Pow(i,j)}"); //печать каждого такта
+    //     }
+    // } 
+    // }   
+    // cube(5);  //вызов метода, 
+
+//ЗДЕСЬ БУДЕТ НОРМАЛЬНЫЙ ВАРИАНТ НА ОСНОВЕ МАССИВА (ТИПА ЗАДАЧИ 33)
+//ПОКА НЕ РАБОТАЕТ (ТО ЧТО НИЖЕ, НЕУДАЧНЫЙ НАБРОСОК), ВРЕМЯ НА СЕГОДНЯ ЗАКОНЧИЛОСЬ:       
+        // double cube(int n)  
+        // {
+        // for (int i = 1; i <= n; i++) 
+        // {
+        //     //double j = 0;
+        //     double j = Math.Pow (i,3);
+        //     return j;
+        // } 
+        // int s = j;
+        // }   
+        // double res = cube(5);  
+
+
+
 // 25. Найти сумму чисел от 1 до А
 // 26. Возведите число А в натуральную степень B используя цикл
 // 27. Определить количество цифр в числе
@@ -617,27 +709,27 @@
 
 // 39. Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
 //от коллег (пока не рабочий)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-int[] CreateArray(int arg, int arg1, int arg2)
-{
-    int[] array = new int[arg];
-    for (int i = 0; i < array.Length; i++) array[i] = new Random().Next(arg1, arg2);
-    return array;
-}
+    // int[] CreateArray(int arg, int arg1, int arg2)
+    // {
+    //     int[] array = new int[arg];
+    //     for (int i = 0; i < array.Length; i++) array[i] = new Random().Next(arg1, arg2);
+    //     return array;
+    // }
 
-int[] RandomArray = CreateArray(12, 1, 10);
-Console.WriteLine(String.Join(',', RandomArray));
+    // int[] RandomArray = CreateArray(12, 1, 10);
+    // Console.WriteLine(String.Join(',', RandomArray));
 
-int SummOddPosition(int[] mass)
-{
-    int work = 0;
-    int len = mass.Length;
-    for (int j = 0; j < mass.Length/2; j++)
-        work = mass[j] * mass[len];
-        len -=1;
-    return work;
-}
+    // int SummOddPosition(int[] mass)
+    // {
+    //     int work = 0;
+    //     int len = mass.Length;
+    //     for (int j = 0; j < mass.Length/2; j++)
+    //         work = mass[j] * mass[len];
+    //         len -=1;
+    //     return work;
+    // }
 
-Console.WriteLine(SummOddPosition(RandomArray));
+    // Console.WriteLine(SummOddPosition(RandomArray));
 
 
 
