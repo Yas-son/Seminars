@@ -43,6 +43,24 @@
         // if (res == true) Console.WriteLine($"Число {a} больше, чем {b}");
         // else Console.WriteLine ($ "Число {b} больше, чем {a}");
 
+            // Вариант решенный на семинаре (вроде мной):
+            // int a = 10;
+            // int b = 7;
+
+            // void MinMax(int a, int b)
+            // {
+            //     if (a > b)
+            //     {
+            //     Console.WriteLine($"Большее число: {a}");
+            //     Console.WriteLine($"Меньшее число: {b}");
+            //     }
+            //     else 
+            //     {
+            //     Console.WriteLine($"Меньшее число: {a}");
+            //     Console.WriteLine($"Большее число: {b}");
+            //     }
+            // }
+            // MinMax (4, 7);
 
 
 // //  3. По заданному номеру дня недели вывести его название
@@ -91,6 +109,15 @@
         //     return y;
         // }
         // Console.WriteLine(f(3));
+
+            // //Мой вариант из семинара:
+            // double f(double a)
+            // {
+            //     double result = Math.Sin(a);
+            //     return result;
+            // }
+            // double ans = f (3);
+            // Console.WriteLine(ans);
 
 
 
